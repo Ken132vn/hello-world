@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1026" />
+  <meta name="description" content="Một lời chúc nhỏ, gửi đến hành trình lớn. Hello! Chúc đậu NV1." />
+  <title>Hello! Chúc đậu NV1 ✨</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b1026;
+      --text: #f7f7ff;
+      --muted: #b7bfdc;
+      --pink: #ffb8d2;
+      --lavender: #c5bbff;
+      --mint: #a7f3df;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { min-height: 100%; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      overflow-x: hidden;
+      padding: 28px 18px;
+      color: var(--text);
+      font-family: "Be Vietnam Pro", sans-serif;
+      background:
+        radial-gradient(ellipse at 14% 18%, rgba(105, 87, 213, .32), transparent 35%),
+        radial-gradient(ellipse at 87% 78%, rgba(44, 174, 169, .18), transparent 30%),
+        linear-gradient(145deg, #080c1d 0%, #121632 52%, #0b1026 100%);
+    }
+
+    body::before, body::after {
+      content: "";
+      position: fixed;
+      width: 270px;
+      height: 270px;
+      border-radius: 50%;
+      filter: blur(75px);
+      opacity: .22;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::before { top: -100px; right: -75px; background: #ad85ff; }
+    body::after { bottom: -120px; left: -90px; background: #ff9bc7; }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 760px);
+      animation: rise-in .85s cubic-bezier(.2,.7,.2,1) both;
+    }
+
+    .topline {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      margin-bottom: 20px;
+      color: #d9d9fb;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    .topline .sparkle { color: var(--pink); font-size: 17px; }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(30px, 7vw, 64px) clamp(22px, 7vw, 66px) 36px;
+      text-align: center;
+      border: 1px solid rgba(218, 220, 255, .18);
+      border-radius: 30px;
+      background: linear-gradient(150deg, rgba(255,255,255,.095), rgba(255,255,255,.035));
+      box-shadow: 0 28px 90px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.08);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .card::before {
+      content: "✦";
+      position: absolute;
+      top: 23px;
+      right: 29px;
+      color: rgba(255, 196, 220, .8);
+      font-size: 24px;
+      transform: rotate(12deg);
+    }
+
+    .emblem {
+      display: grid;
+      place-items: center;
+      width: 68px;
+      height: 68px;
+      margin: 0 auto 25px;
+      border: 1px solid rgba(255,255,255,.23);
+      border-radius: 22px;
+      background: linear-gradient(140deg, rgba(255,184,210,.2), rgba(197,187,255,.2));
+      box-shadow: 0 8px 30px rgba(162, 136, 255, .14);
+      font-size: 29px;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--mint);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(42px, 9vw, 76px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -.045em;
+    }
+
+    h1 .hello {
+      display: block;
+      color: #fff;
+    }
+
+    h1 .wish {
+      display: block;
+      margin-top: 8px;
+      padding-bottom: 8px;
+      color: transparent;
+      background: linear-gradient(100deg, #ffbfd8 9%, #d4c5ff 51%, #aaf1df 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .lead {
+      max-width: 490px;
+      margin: 22px auto 0;
+      color: var(--muted);
+      font-size: clamp(14px, 2.5vw, 16px);
+      line-height: 1.9;
+    }
+
+    .lead strong { color: #f7e9ff; font-weight: 600; }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      max-width: 330px;
+      margin: 29px auto;
+      color: rgba(224, 220, 255, .63);
+      font-size: 10px;
+      letter-spacing: .19em;
+      white-space: nowrap;
+    }
+    .divider::before, .divider::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(90deg, transparent, rgba(218,220,255,.32), transparent);
+    }
+
+    .signin-area {
+      display: flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    #googleButton { display: flex; justify-content: center; min-height: 44px; }
+
+    .setup-note {
+      display: none;
+      max-width: 470px;
+      padding: 13px 15px;
+      border: 1px solid rgba(255, 205, 140, .25);
+      border-radius: 12px;
+      color: #ffe5bc;
+      background: rgba(255, 192, 105, .08);
+      font-size: 12px;
+      line-height: 1.7;
+      text-align: left;
+    }
+    .setup-note code { color: #fff3dd; overflow-wrap: anywhere; }
+
+    .profile {
+      display: none;
+      width: min(100%, 430px);
+      margin: 0 auto;
+      padding: 18px;
+      border: 1px solid rgba(173, 243, 223, .24);
+      border-radius: 19px;
+      background: rgba(117, 230, 198, .07);
+      animation: rise-in .45s ease both;
+    }
+
+    .profile-head { display: flex; align-items: center; justify-content: center; gap: 12px; }
+    .avatar { width: 48px; height: 48px; border-radius: 50%; border: 2px solid rgba(182, 255, 232, .75); object-fit: cover; }
+    .profile-copy { text-align: left; min-width: 0; }
+    .profile-copy strong { display: block; font-size: 14px; overflow-wrap: anywhere; }
+    .profile-copy span { display: block; margin-top: 4px; color: var(--mint); font-size: 11px; }
+    .personal-wish { margin: 17px 0 2px; font-family: "Playfair Display", Georgia, serif; font-size: clamp(22px, 5vw, 29px); color: #ffe0ed; }
+    .signout { margin-top: 13px; padding: 8px 13px; border: 1px solid rgba(255,255,255,.19); border-radius: 999px; color: var(--muted); background: transparent; cursor: pointer; font: inherit; font-size: 12px; }
+    .signout:hover { color: white; border-color: rgba(255,255,255,.45); }
+
+    .privacy-note {
+      max-width: 430px;
+      margin: 14px auto 0;
+      color: #939bbd;
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 21px;
+      color: #878eaf;
+      font-size: 11px;
+      letter-spacing: .04em;
+    }
+    .footer span { color: #ffb8d2; }
+
+    .confetti { position: absolute; top: 22px; left: 26px; color: rgba(197,187,255,.8); font-size: 14px; }
+
+    @keyframes rise-in {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 18px 12px; }
+      .card { border-radius: 24px; }
+      .topline { font-size: 9px; letter-spacing: .15em; }
+      .lead { line-height: 1.8; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+    }
+  </style>
+
+  <script>
+    // Replace this with your Web OAuth Client ID from Google Cloud Console.
+    const GOOGLE_CLIENT_ID = "YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com";
+
+    function onGoogleLibraryLoad() {
+      // The Google script may load before the body has been parsed.
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", onGoogleLibraryLoad, { once: true });
+        return;
+      }
+
+      const note = document.getElementById("setupNote");
+      const button = document.getElementById("googleButton");
+      const isPlaceholder = !GOOGLE_CLIENT_ID || GOOGLE_CLIENT_ID.startsWith("YOUR_GOOGLE_");
+
+      if (isPlaceholder) {
+        note.style.display = "block";
+        button.style.display = "none";
+        return;
+      }
+
+      google.accounts.id.initialize({
+        client_id: GOOGLE_CLIENT_ID,
+        callback: handleGoogleCredential,
+        auto_select: false
+      });
+
+      google.accounts.id.renderButton(button, {
+        type: "standard",
+        theme: "filled_blue",
+        size: "large",
+        shape: "pill",
+        text: "signin_with",
+        logo_alignment: "left",
+        width: 280
+      });
+    }
+
+    function decodeJwtPayload(token) {
+      const part = token.split(".")[1];
+      const base64 = part.replace(/-/g, "+").replace(/_/g, "/");
+      const padded = base64 + "=".repeat((4 - base64.length % 4) % 4);
+      const bytes = Uint8Array.from(atob(padded), character => character.charCodeAt(0));
+      return JSON.parse(new TextDecoder().decode(bytes));
+    }
+
+    function handleGoogleCredential(response) {
+      try {
+        // This static demo only decodes profile fields for display in this browser.
+        // A production app must verify the ID token on a server before trusting it.
+        const user = decodeJwtPayload(response.credential);
+        document.getElementById("googleName").textContent = user.name || "Bạn";
+        document.getElementById("googleEmail").textContent = user.email || "Đã đăng nhập bằng Google";
+        document.getElementById("googleAvatar").src = user.picture || "";
+        document.getElementById("googleAvatar").alt = user.name ? `Ảnh đại diện của ${user.name}` : "Ảnh đại diện";
+        document.getElementById("signinArea").style.display = "none";
+        document.getElementById("profile").style.display = "block";
+        document.getElementById("privacyNote").textContent = "Đăng nhập chỉ dùng để hiển thị thông tin hồ sơ cơ bản. Trang này không yêu cầu quyền đọc hộp thư Gmail.";
+      } catch (error) {
+        document.getElementById("setupNote").style.display = "block";
+        document.getElementById("setupNote").textContent = "Không đọc được phản hồi đăng nhập. Hãy tải lại trang và thử lại.";
+      }
+    }
+
+    function signOutView() {
+      document.getElementById("profile").style.display = "none";
+      document.getElementById("signinArea").style.display = "flex";
+      // This resets the page display. It does not sign the user out of Google itself.
+      if (window.google && google.accounts && google.accounts.id) {
+        google.accounts.id.disableAutoSelect();
+      }
+    }
+  </script>
+  <script src="https://accounts.google.com/gsi/client" async defer onload="onGoogleLibraryLoad()"></script>
+</head>
+<body>
+  <main class="page">
+    <div class="topline"><span class="sparkle">✧</span> A little wish for your big journey <span class="sparkle">✧</span></div>
+
+    <section class="card" aria-labelledby="mainTitle">
+      <span class="confetti" aria-hidden="true">✳</span>
+      <div class="emblem" aria-hidden="true">🎓</div>
+      <p class="eyebrow">Your next chapter starts here</p>
+      <h1 id="mainTitle">
+        <span class="hello">Hello!</span>
+        <span class="wish">Chúc đậu NV1</span>
+      </h1>
+      <p class="lead">
+        Mong mọi nỗ lực hôm nay sẽ trở thành <strong>tin vui ngày mai</strong>.<br />
+        Giữ vững mục tiêu, tin vào bản thân —<br />
+        cánh cửa bạn mong chờ đang ở phía trước. ✨
+      </p>
+
+      <div class="divider">A NEW BEGINNING</div>
+
+      <div class="signin-area" id="signinArea">
+        <div id="googleButton" aria-label="Đăng nhập bằng Google"></div>
+        <div class="setup-note" id="setupNote">
+          <strong>Cần cấu hình Google Sign-In.</strong><br />
+          Trong file <code>index.html</code>, thay <code>YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com</code> bằng OAuth Client ID của bạn trong Google Cloud Console, rồi deploy lại GitHub Pages.
+        </div>
+      </div>
+
+      <section class="profile" id="profile" aria-live="polite">
+        <div class="profile-head">
+          <img class="avatar" id="googleAvatar" src="" alt="Ảnh đại diện" referrerpolicy="no-referrer" />
+          <div class="profile-copy">
+            <strong id="googleName">Bạn</strong>
+            <span id="googleEmail">Đã đăng nhập bằng Google</span>
+          </div>
+        </div>
+        <p class="personal-wish">Hello! Chúc bạn đậu NV1 🌟</p>
+        <button class="signout" type="button" onclick="signOutView()">Quay lại</button>
+      </section>
+
+      <p class="privacy-note" id="privacyNote">Đăng nhập bằng Google để nhận lời chúc dành riêng cho bạn. Website không yêu cầu mật khẩu Google.</p>
+    </section>
+
+    <footer class="footer">Made with <span>♥</span> and a little hope</footer>
+  </main>
+</body>
+</html>
